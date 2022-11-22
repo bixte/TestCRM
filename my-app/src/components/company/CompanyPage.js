@@ -14,9 +14,9 @@ export default class CompanyPage extends React.Component {
     }
 
     changeCurrentRow = (e) => {
-        let id = e.target.parentElement.dataset["id"];
+        console.log(e)
         this.setState({
-            currentRow: id
+            currentRow: e
         })
     }
 
@@ -25,7 +25,7 @@ export default class CompanyPage extends React.Component {
         let idEmployee = this.state.currentRow;
         return (
             <>
-                <CompanyTop changeCurrentRow={this.changeCurrentRow} data={this.employees}/>
+                <CompanyTop changeCurrentRow={(event) => this.changeCurrentRow(event)} data={this.employees}/>
                 {idEmployee && <CompanyBottom data={this.employees[idEmployee]}/>}
             </>
         );

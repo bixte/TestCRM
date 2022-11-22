@@ -5,34 +5,41 @@ export function TableHeader(props) {
         head => <th key={head.toString()}>{head}</th>);
     return (
         <thead style={{backgroundColor: "black", color: "white"}}>
-        <tr>
-            {heads}
-        </tr>
-        </thead>)
+            <tr>
+                {heads}
+            </tr>
+        </thead>
+    )
 }
 
 
 export function TableBody(props) {
     let data = props.data;
+    const handleClick = (item) => {
+        console.log(item);
+        // props.whenItemClicked(item);
+    }
     let rows = data.map((item =>
-        <TableBodyItem key={item.id} value={item}/>));
+        <TableBodyItem onClick={handleClick(item.id)} key={item.id} value={item}/>
+        )
+    );
 
     return (
-        <tbody onClick={props.changeCurrentRow}>
+        <tbody >
         {rows}
-        </tbody>)
+        </tbody>
+    )
 }
 
 export function TableBodyItem(props) {
     let value = props.value;
     let cols = Object.values(value).map(
-        val => <td key={val.toString()}>{val}</td>)
+        val => <td key={val.toString()}>{val}</td>
+    )
     return (
         <tr className={"companyTop__table-item"}
-            data-id={value.id}
         >
             {cols}
         </tr>
     )
-
 }

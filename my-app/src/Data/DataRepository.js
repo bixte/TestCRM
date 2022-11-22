@@ -18,5 +18,4 @@ export class DataRepository{
     getEmployees() {
         return [this.user, this.user2];
     }
-
 }
