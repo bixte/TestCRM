@@ -1,0 +1,57 @@
+.navigation {
+    background-color: #ccc;
+}
+
+.navigation__container {
+    width: 260px;
+    height: 100vh;
+    padding: 20px 0;
+}
+
+.navigation-logo {
+    width: 105px;
+    height: 105px;
+    margin: 0 auto;
+}
+
+.navigation-logo__img {
+    width: 100%;
+}
+
+
+.NavButton{
+    width: 100%;
+    border-radius: 0;
+    padding: 30px 7px;
+    border: 0;
+    text-align: left;
+    background-color: transparent;
+}
+
+.NavButton:hover{
+    background-color: rgba(112, 135, 144, 0.34);
+}
+
+
+.app-companyTop{
+    border-bottom: 5px solid black;
+    height: 50vh;
+}
+
+.app-companyTop-content{
+    max-height: 50vh;
+    overflow: auto;
+}
+
+
+
+.app-companyBottom{
+    padding: 10px;
+}
+
+
+.app-companyBottom-form__item{
+    margin: 10px;
+}
+
+
