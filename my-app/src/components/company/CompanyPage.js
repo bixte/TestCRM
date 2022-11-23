@@ -1,30 +1,29 @@
 import React from "react";
-import {DataRepository} from "../../Data/DataRepository";
 import {CompanyTop} from "./CompanyTop";
 import {CompanyBottom} from "./CompanyBottom";
-import User from "../../Data/User";
+import Employee from "../../Data/Employee";
 
 export default class CompanyPage extends React.Component {
 
     componentDidMount() {
-        let response =  fetch("http://localhost:8000/API/employees.php", {method: "GET"})
-            .then(res=>res.json())
+        fetch("http://localhost:8000/API/employees.php", {method: "GET"})
+            .then(res => res.json())
             .then(
-                res=>{
+                res => {
                     this.setState({
-                        isLoaded:true,
+                        isLoaded: true,
                         employees: res
                     })
                 }
             )
-
     }
+
     constructor(props) {
         super(props);
         this.state = {
             currentRow: 5,
-            isLoaded:false,
-            employees:[]
+            isLoaded: false,
+            employees: []
         }
     }
 
@@ -35,14 +34,14 @@ export default class CompanyPage extends React.Component {
     }
 
     render() {
-        const {isLoaded,currentRow, employees} = this.state;
-        console.log(currentRow);
+        const {isLoaded, currentRow, employees} = this.state;
         if (!isLoaded) return <div>Загрузка</div>
         else {
             return (
                 <>
                     <CompanyTop changeCurrentRow={this.changeCurrentRow} data={employees}/>
-                    {<CompanyBottom id={currentRow} data={employees.find(emp=>emp.id===currentRow)}/>}
+                    {<CompanyBottom id={currentRow}
+                                    data={employees.find(emp => emp.id === currentRow) ?? new Employee()}/>}
                 </>
             );
         }
