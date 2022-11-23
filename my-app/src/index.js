@@ -13,8 +13,7 @@ class App extends React.Component {
             currentPage: null
         }
     }
-
-    clickHandler = (e) => {
+    navigationClickHandler = (e) => {
         this.setState({
             currentPage: e.target.value
         });
@@ -23,14 +22,13 @@ class App extends React.Component {
     render() {
         return (
             <div className={"d-flex app__page"}>
-                <NavigationBar clickHandler={this.clickHandler}/>
+                <NavigationBar clickHandler={this.navigationClickHandler}/>
                 <main style={{width: "100%"}} className={"app__page-content"}>
                     <CompanyPage/>
                 </main>
             </div>)
     }
 }
-
 
 const rootNode = document.getElementById("app");
 const root = ReactDOM.createRoot(rootNode);

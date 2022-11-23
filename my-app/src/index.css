@@ -33,12 +33,12 @@
 }
 
 
-.app-companyTop{
+.app-company-top{
     border-bottom: 5px solid black;
     height: 50vh;
 }
 
-.app-companyTop-content{
+.app-company-top-content{
     max-height: 50vh;
     overflow: auto;
 }

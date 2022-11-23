@@ -1,14 +1,16 @@
 import React from "react";
 import {Table} from "reactstrap";
-import {TableBody, TableHeader} from "../materials/Table";
+import { TableHeader} from "../materials/table/TableHeader";
+import {TableBody} from "../materials/table/TableBody";
 
+let heads =["Id","Фамилия", "Имя", "Отчество", "Дата рождения", "Город"]
 export class CompanyTop extends React.Component {
     render() {
         return (
-            <div className={"app-companyTop"}>
-                <div className={"app-companyTop-content"}>
-                    <Table className={"app-companyTop__table table-bordered table-hover table-responsive"}>
-                        <TableHeader heads={["Id","Фамилия", "Имя", "Отчество", "Дата рождения", "Город"]}/>
+            <div className={"app-company-top"}>
+                <div className={"app-company-top-content"}>
+                    <Table className={"app-company-top__table table-bordered table-hover table-responsive"}>
+                        <TableHeader heads={heads}/>
                         <TableBody changeCurrentRow={this.props.changeCurrentRow} data={this.props.data}/>
                     </Table>
                 </div>

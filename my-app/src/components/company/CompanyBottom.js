@@ -5,6 +5,7 @@ export class CompanyBottom extends React.Component {
     render() {
         return (
             <div className={"app-companyBottom"}>
+                <h3>Данные о сотруднике:{this.props.id}</h3>
                 <EmployeeForm data={this.props.data}/>
             </div>
         );
