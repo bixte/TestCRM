@@ -6,6 +6,7 @@ export function TableBody(props) {
         <TableBodyItem key={item.id} onclick={props.changeCurrentRow} item={item}/>));
     return (
         <tbody>
-            {rows}
-        </tbody>)
+        {rows}
+        </tbody>
+    )
 }

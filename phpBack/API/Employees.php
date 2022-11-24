@@ -2,6 +2,7 @@
 include_once "../DataRepository.php";
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+header("access control allow methods:*");
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET["id"])) {
@@ -10,12 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode(DataRepository::GetEmployees());
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $family = $_POST["family"];
-    $name = $_POST["name"];
-    $secondName = $_POST["secondName"];
-    $dateBirthday = $_POST["dateBirthday"];
-    $city = $_POST["city"];
-    DataRepository::AddEmloyee($family,$name,$secondName,$dateBirthday,$city);
+    $request = file_get_contents('php://input');
+    $data = json_decode($request);
+    if (isset($_REQUEST["id"]) ) {
+        DataRepository::ChangeEmployee($_REQUEST["id"], $data->family, $data->name, $data->secondName, $data->dateBirthday, $data->city);
+    } else {
+        DataRepository::AddEmloyee($data->family, $data->name, $data->secondName, $data->dateBirthday, $data->city);
+    }
 }
+
+
+
+
 

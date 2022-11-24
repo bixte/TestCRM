@@ -58,7 +58,7 @@ class DataRepository
     {
         try {
             $connect = new PDO(self::$connectionString, self::$userName,self::$password);
-            $sql = "Insert employees(family, name, secondName, dateBirthday, city) values($family, $name, $secondName, $dateBirthday, $city)";
+            $sql = "Insert employees(family, name, secondName, dateBirthday, city) values('$family', '$name', '$secondName', '$dateBirthday', '$city')";
             $connect->exec($sql);
 
         } catch (\mysql_xdevapi\Exception $ex) {
@@ -66,4 +66,28 @@ class DataRepository
             echo $ex->getMessage();
         }
     }
+
+    public  static  function  ChangeEmployee($id,$family, $name, $secondName, $dateBirthday, $city):int{
+        try {
+            $connect = new PDO(self::$connectionString, self::$userName,self::$password);
+            $sql = "update employees SET name ='$name',family='$family', secondName ='$secondName',dateBirthday ='$dateBirthday', city='$city' WHERE id =$id;";
+            $result = $connect->exec($sql);
+
+        } catch (\mysql_xdevapi\Exception $ex) {
+            echo 'error';
+            echo $ex->getMessage();
+        }
+        return $result;
+    }
+
+    public static function DeleteEmployee(int $id):void
+    {
+        try {
+            $connect = new PDO(self::$connectionString, self::$userName,self::$password);
+            $sql = "DELETE from employees WHERE id=$id;";
+            $result = $connect->exec($sql);
+        } catch (\mysql_xdevapi\Exception $ex) {
+            echo 'error';
+            echo $ex->getMessage();
+        }}
 }

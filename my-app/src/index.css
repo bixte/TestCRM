@@ -22,7 +22,7 @@
 .NavButton{
     width: 100%;
     border-radius: 0;
-    padding: 30px 7px;
+    padding: 30px 10px;
     border: 0;
     text-align: left;
     background-color: transparent;
@@ -42,11 +42,14 @@
     max-height: 50vh;
     overflow: auto;
 }
+.companyTop__table-item{
+    cursor: pointer;
+}
 
 
 
 .app-companyBottom{
-    padding: 10px;
+    padding: 10px 10px 0;
 }
 
 
@@ -54,4 +57,29 @@
     margin: 10px;
 }
 
+
+.form-employee-action{
+    right: 0;
+    top: 0;
+    height: 105%;
+}
+
+.app-company-top-create{
+    right: 0;
+    top: 0;
+}
+
+.app-company-top-content-create{
+    background-color: rgba(75, 75, 75, 0.6);
+    position:absolute;
+    width:100%;
+    left:0;
+    bottom: 0;
+    height: 70%;
+    z-index: 10;
+}
+
+.app-company-top-form__content{
+
+}
 
