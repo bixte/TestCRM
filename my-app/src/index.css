@@ -35,7 +35,7 @@
 
 .app-company-top{
     border-bottom: 5px solid black;
-    height: 50vh;
+    height: 47vh;
 }
 
 .app-company-top-content{
@@ -56,12 +56,14 @@
 .app-companyBottom-form__item{
     margin: 10px;
 }
-
+.app-companyBottom-form__item-description{
+    color: white;
+}
 
 .form-employee-action{
     right: 0;
     top: 0;
-    height: 105%;
+    height: 100%;
 }
 
 .app-company-top-create{
@@ -70,16 +72,20 @@
 }
 
 .app-company-top-content-create{
-    background-color: rgba(75, 75, 75, 0.6);
+    background-color:rgb(39, 74, 94);
     position:absolute;
     width:100%;
     left:0;
     bottom: 0;
-    height: 70%;
     z-index: 10;
+    transition: all .3s linear;
+    opacity: .85;
+}
+.app-company-top-form__content .app-companyBottom-form__item-description{
+    color: white !important;
+}
+.table-head__item-content-collapse{
+    cursor: pointer;
 }
 
-.app-company-top-form__content{
-
-}
 
